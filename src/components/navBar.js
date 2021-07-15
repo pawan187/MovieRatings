@@ -6,6 +6,15 @@ export default () => (
       <a class="navbar-brand" href="#">
         Imdbv2
       </a>
+      <div class="d-flex">
+        {true ? (
+          <a href="/login" class="btn btn-primary">
+            Login
+          </a>
+        ) : (
+          ''
+        )}
+      </div>
     </div>
   </nav>
 );

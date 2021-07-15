@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-export default () => {
+export default ({ SearchText }) => {
   const [text, setText] = useState('');
   return (
-    <div class="navbar container-fluid col">
+    <div class="container">
       <div claa="container">
         <div class="row">
           <input
-            onChange={e => setText(e.target.value)}
+            onChange={e => SearchText(e.target.value)}
             class="form-control col me-2"
             type="search"
             placeholder="Search"

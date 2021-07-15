@@ -7,7 +7,6 @@ export default () => {
   
   return (
     <div>
-      <NavBar />
       <SearchForm />
       <MoviesList />
     </div>
