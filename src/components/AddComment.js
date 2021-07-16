@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export default () => (
+export default () =>{ 
+  const [SearchText, setSearchText] = useState('')
+  return (
   <div>
     <div class="input-group mb-3">
       <input
@@ -14,4 +16,4 @@ export default () => (
       </span>
     </div>
   </div>
-);
+)};

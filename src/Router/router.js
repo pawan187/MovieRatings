@@ -24,12 +24,11 @@ export default () => {
   return (
     <Router history={history}>
       <div>
-        <NavBar />
         <Switch>
+          <NavBar />
           <Route path="/" component={Home} exact={true} />
           <Route path="/login" component={Login} />
           <Route path="/Register" component={Register} />
-          <Route path="/Movie/:id" component={MovieDetail} />
           <Route component={Error} />
         </Switch>
       </div>

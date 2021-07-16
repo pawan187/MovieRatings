@@ -6,13 +6,17 @@ export default ({ comments }) => (
       {comments
         ? comments.map((value, index) => {
             return (
-              <li class="list-group-item d-flex justify-content-between align-items-start">
-                <span class="badge bg-primary rounded-pill">7.5</span>
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Subheading</div>
-                  Cras justo odio
-                </div>
-              </li>
+              <div key={index}>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <span class="badge bg-primary rounded-pill">
+                    {value.rating}
+                  </span>
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold">{value.username}</div>
+                    {value.comment}
+                  </div>
+                </li>
+              </div>
             );
           })
         : ''}

@@ -15,7 +15,8 @@ export default props => {
       })
       .then(response => {
         console.log(response.data);
-        window.location.href = '/';
+        props.setShowLogin(false);
+        props.setUser(response.data);
       })
       .catch(error => {
         console.error('There was an error!', error);
@@ -49,13 +50,11 @@ export default props => {
           id="exampleInputPassword1"
         />
       </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1">
-          Check me out
-        </label>
-      </div>
-      <button onClick={() => login()} type="submit" class="btn btn-primary">
+      <button
+        onClick={() => login()}
+        type="submit"
+        class="btn form-control btn-primary"
+      >
         Submit
       </button>
     </div>
