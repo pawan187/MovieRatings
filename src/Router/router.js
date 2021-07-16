@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Home from '../components/Home';
 import Login from '../components/Login';
 import NavBar from '../components/navBar';
-
+import Register from '../components/Register';
+import Error from '../components/Error';
+import MovieDetail from '../components/MovieDetail';
 import ReactDOM from 'react-dom';
 import {
   Router,
@@ -18,15 +20,19 @@ import { createBrowserHistory } from 'history';
 
 export const history = createBrowserHistory();
 
-export default () => (
-  <Router history={history}>
-    <div>
-      <NavBar />
-      <Switch>
-        <Route path="/" component={Home} exact={true} />
-        <Route path="/login" component={Login} />
-        <Route component={Error} />
-      </Switch>
-    </div>
-  </Router>
-);
+export default () => {
+  return (
+    <Router history={history}>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route path="/" component={Home} exact={true} />
+          <Route path="/login" component={Login} />
+          <Route path="/Register" component={Register} />
+          <Route path="/Movie/:id" component={MovieDetail} />
+          <Route component={Error} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};

@@ -1,15 +1,24 @@
 import React from 'react';
 
-export default () => (
+export default ({ user }) => (
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid col">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         Imdbv2
       </a>
       <div class="d-flex">
-        {true ? (
-          <a href="/login" class="btn btn-primary">
-            Login
+        <div>
+          {!user ? (
+            <a href="/login" class="btn btn-light">
+              Login
+            </a>
+          ) : (
+            ''
+          )}
+        </div>
+        {!user ? (
+          <a href="/Register" class="btn btn-light">
+            Register
           </a>
         ) : (
           ''
