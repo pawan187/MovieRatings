@@ -17,6 +17,7 @@ export default props => {
         console.log(response.data);
         props.setShowLogin(false);
         props.setUser(response.data);
+        localStorage.user = JSON.stringify(response.data);
       })
       .catch(error => {
         console.error('There was an error!', error);

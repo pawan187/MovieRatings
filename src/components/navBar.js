@@ -1,12 +1,6 @@
 import React from 'react';
 
-export default ({
-  user,
-  ShowLogin,
-  ShowRegister,
-  setShowLogin,
-  setShowRegister
-}) => {
+export default ({ user, setShowLogin, setShowRegister }) => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid col">

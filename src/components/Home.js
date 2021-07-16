@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Login from './Login';
 import Register from './Register';
 import NavBar from './navBar';
-import SearchForm from './SearchForm';
 import MoviesList from './MoviesList';
 import MovieDetail from './MovieDetail';
 export default () => {
@@ -12,9 +11,12 @@ export default () => {
   const [ShowRegister, setShowRegister] = useState(false);
   const [user, setUser] = useState();
 
-  // useEffect(()=>{
-
-  // },[])
+  useEffect(() => {
+    // const data = JSON.parse(localStorage.user)
+    // if(data){    
+    //   console.log(JSON.parse(data))
+    // }
+  }, []);
   return (
     <div class="container-fluid">
       <NavBar

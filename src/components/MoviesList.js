@@ -34,20 +34,22 @@ export default ({ setMovieId }) => {
             ? SearchList.map((value, index) => {
                 return (
                   <div key={index}>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <button
+                      onClick={() => setMovieId(value._id)}
+                      class="list-group-item list-group-item-action"
+                    >
                       <div class="ms-2 me-auto">
                         <div class="fw-bold">
-                          <button
+                          {/* <button
                             class="btn btn-light fw-bold"
                             onClick={() => setMovieId(value._id)}
-                          >
-                            {value.name}
-                          </button>
+                          > */}
+                          Movie :{value.name}
+                          {/* </button> */}
                         </div>
-                        {value.description}
+                        Description : {value.description}
                       </div>
-                      <span class="badge bg-primary rounded-pill">14</span>
-                    </li>
+                    </button>
                   </div>
                 );
               })

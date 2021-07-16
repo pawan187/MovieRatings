@@ -5,9 +5,9 @@ export default () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
-  const Register = ()=>{
-    console.log(email,name,password)
-  }
+  const Register = () => {
+    console.log(email, name, password);
+  };
   return (
     <div class="container">
       <div class="mb-3">
@@ -15,7 +15,7 @@ export default () => {
           Full Name
         </label>
         <input
-          onClick={e => setname(e.target.value)}
+          onChange={e => setname(e.target.value)}
           type="full_name"
           class="form-control"
           id="exampleInputEmail1"
@@ -28,7 +28,7 @@ export default () => {
         </label>
         <input
           type="email"
-          onClick={e => setemail(e.target.value)}
+          onChange={e => setemail(e.target.value)}
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -42,7 +42,7 @@ export default () => {
           Password
         </label>
         <input
-          onClick={e => setpassword(e.target.value)}
+          onChange={e => setpassword(e.target.value)}
           type="password"
           class="form-control"
           id="exampleInputPassword1"
@@ -50,7 +50,7 @@ export default () => {
       </div>
       <button
         type="submit"
-        onClick={() =>Register()}
+        onClick={() => Register()}
         class="btn btn-primary form-control"
       >
         Submit
