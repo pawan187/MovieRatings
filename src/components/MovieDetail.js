@@ -6,7 +6,7 @@ export default props => {
   const [movie, setmovie] = useState([]);
 
   useEffect(() => {
-    fetch('https://wo1gh.sse.codesandbox.io/movie/' + props.id)
+    fetch('https://0cys3.sse.codesandbox.io/movie/' + props.id)
       .then(data => data.json())
       .then(data => setmovie({ ...data }));
   }, [props.id]);

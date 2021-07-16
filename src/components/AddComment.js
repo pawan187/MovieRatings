@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 export default ({ user }) => {
   const [SearchText, setSearchText] = useState('');
   const addComment = () => {
-    console.log(SearchText);
+    if (!user) {
+      alert('please log in');
+    } else {
+      console.log(SearchText,user._id,MovieId, Rating);
+    }
   };
   return (
     <div>
@@ -15,15 +19,13 @@ export default ({ user }) => {
           placeholder="enter some comment"
           aria-describedby="basic-addon2"
         />
-        <span
-          onClick={() => {
-            addComment;
-          }}
+        <button
+          onClick={() => addComment()}
           class="input-group-text"
           id="basic-addon2"
         >
           add
-        </span>
+        </button>
       </div>
     </div>
   );

@@ -12,10 +12,8 @@ export default () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    // const data = JSON.parse(localStorage.user)
-    // if(data){    
-    //   console.log(JSON.parse(data))
-    // }
+    const data = JSON.parse(window.localStorage.getItem('user'));
+    setUser(data);
   }, []);
   return (
     <div class="container-fluid">

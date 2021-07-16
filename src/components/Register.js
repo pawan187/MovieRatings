@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
-
-export default () => {
+import axios from 'axios'
+export default (props) => {
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
   const Register = () => {
     console.log(email, name, password);
+    axios
+      .post('https://0cys3.sse.codesandbox.io/users/Register', {
+        name : name,
+        email : email,
+        password: password
+      })
+      .then(response => {
+        console.log(response.data);
+        props.setShowLogin(false);
+        props.setUser(response.data);
+        localStorage.user = JSON.stringify(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
   };
   return (
     <div class="container">
