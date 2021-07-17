@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-export default ({ user }) => {
+export default ({ user, MovieId }) => {
   const [SearchText, setSearchText] = useState('');
   const addComment = () => {
+    console.log(user);
     if (!user) {
-      alert('please log in',user);
+      alert('please log in', user);
     } else {
-      console.log(SearchText,user._id,MovieId, Rating);
+      console.log(SearchText, user._id, MovieId, Rating);
     }
   };
   return (

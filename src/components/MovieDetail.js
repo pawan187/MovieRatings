@@ -6,6 +6,7 @@ export default props => {
   const [movie, setmovie] = useState([]);
 
   useEffect(() => {
+    // console.log(props.user);
     fetch('https://0cys3.sse.codesandbox.io/movie/' + props.id)
       .then(data => data.json())
       .then(data => setmovie({ ...data }));
@@ -25,7 +26,7 @@ export default props => {
             {movie['comments'] ? 'comments' : 'comments'}
           </div>
           <ul class="list-group">
-            <AddComment />
+            <AddComment user={props.user} MovieId={props.id} />
             <CommentList comments={movie['comments']} />
           </ul>
         </div>

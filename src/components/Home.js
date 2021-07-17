@@ -14,6 +14,7 @@ export default () => {
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem('user'));
     setUser(data);
+    console.log(user)
   }, []);
   return (
     <div class="container-fluid">
@@ -45,7 +46,7 @@ export default () => {
             </div>
             {MovieId ? (
               <div class="col">
-                <MovieDetail id={MovieId} />
+                <MovieDetail user={user} id={MovieId} />
               </div>
             ) : (
               ''
