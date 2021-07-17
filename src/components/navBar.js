@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ user, setShowLogin, setShowRegister }) => {
+export default ({ user, setUser, setShowLogin, setShowRegister }) => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid col">
@@ -36,7 +36,15 @@ export default ({ user, setShowLogin, setShowRegister }) => {
           ) : (
             <div>
               Hello , {user.email}
-              <button class="btn btn-light">logout</button>
+              <button
+                onClick={() => {
+                  setUser(null);
+                  localStorage.setItem('user', null);
+                }}
+                class="btn btn-light"
+              >
+                logout
+              </button>
             </div>
           )}
         </div>

@@ -18,6 +18,7 @@ export default () => {
   return (
     <div class="container-fluid">
       <NavBar
+        setUser={setUser}
         user={user}
         setShowLogin={setShowLogin}
         setShowRegister={setShowRegister}

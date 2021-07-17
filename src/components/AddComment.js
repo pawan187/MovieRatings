@@ -4,7 +4,7 @@ export default ({ user }) => {
   const [SearchText, setSearchText] = useState('');
   const addComment = () => {
     if (!user) {
-      alert('please log in');
+      alert('please log in',user);
     } else {
       console.log(SearchText,user._id,MovieId, Rating);
     }
