@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
-
-export default ({ user, MovieId }) => {
+import axios from 'axios';
+export default ({ user, MovieId, addComment }) => {
   const [SearchText, setSearchText] = useState('');
   const [Rating, setRating] = useState(0);
-  const addComment = () => {
+  const AddComment = () => {
     console.log(user);
     if (!user) {
-      alert('please log in', user);
+      alert('please log in');
     } else {
-      fetch('')
-      console.log(SearchText, user.id, MovieId, Rating);
+      console.log(SearchText, user.id, MovieId, Rating, user.token);
+      axios
+        .post(
+          'https://21l06.sse.codesandbox.io/comment',
+          {
+            movieId: MovieId,
+            userId: user.id,
+            comment: SearchText,
+            rating: Rating
+          },
+          {
+            headers: {
+              'x-access-token': user.token
+            }
+          }
+        )
+        .then(response => {
+          console.log(response.data);
+          addComment(response.data);
+        })
+        .catch(error => {
+          console.error('There was an error!', error);
+        });
     }
   };
   return (
@@ -32,7 +53,7 @@ export default ({ user, MovieId }) => {
               class="col from-control"
               id="basic-addon2"
             />
-            <button class=" col form-control" onClick={() => addComment()}>
+            <button class=" col form-control" onClick={() => AddComment()}>
               add
             </button>
           </div>

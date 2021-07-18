@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios'
-export default (props) => {
+import axios from 'axios';
+export default props => {
   const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -8,9 +8,9 @@ export default (props) => {
   const Register = () => {
     console.log(email, name, password);
     axios
-      .post('https://0cys3.sse.codesandbox.io/users/Register', {
-        name : name,
-        email : email,
+      .post('https://21l06.sse.codesandbox.io/users/Register', {
+        name: name,
+        email: email,
         password: password
       })
       .then(response => {

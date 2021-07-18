@@ -5,7 +5,7 @@ export default ({ setMovieId }) => {
   const [SearchText, setSearchText] = useState('');
   const [SearchList, setSearchList] = useState('');
   useEffect(() => {
-    fetch('https://0cys3.sse.codesandbox.io/movies')
+    fetch('https://21l06.sse.codesandbox.io/movies')
       .then(data => data.json())
       .then(data => {
         setList(data);
