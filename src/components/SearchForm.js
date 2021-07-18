@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 export default ({ setSeachText }) => {
-  const [text, setText] = useState('');
   return (
     <div class="container-fluid ">
       <div class="row">

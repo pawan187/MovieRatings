@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 import Login from './Login';
 import Register from './Register';
 import NavBar from './navBar';
@@ -10,11 +10,10 @@ export default () => {
   const [ShowLogin, setShowLogin] = useState(false);
   const [ShowRegister, setShowRegister] = useState(false);
   const [user, setUser] = useState();
-
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem('user'));
     setUser(data);
-    console.log(user)
+    console.log(user);
   }, []);
   return (
     <div class="container-fluid">
@@ -42,7 +41,7 @@ export default () => {
         <div>
           <div class="container row">
             <div class="col">
-              <MoviesList setMovieId={setMovieId} />
+              <MoviesList user={user} setMovieId={setMovieId} />
             </div>
             {MovieId ? (
               <div class="col">

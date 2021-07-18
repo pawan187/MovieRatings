@@ -1,33 +1,83 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import AddMovie from './AddMovie';
 import SearchForm from './SearchForm';
-export default ({ setMovieId }) => {
+export default ({ user, setMovieId }) => {
   const [list, setList] = useState([]);
   const [SearchText, setSearchText] = useState('');
   const [SearchList, setSearchList] = useState('');
+  const [role, setrole] = useState('user');
+  const [ShowAddMovie, setShowAddMovie] = useState(false);
+
+  const pushMovie = movie => {
+    setList(...list, movie);
+  };
   useEffect(() => {
     fetch('https://21l06.sse.codesandbox.io/movies')
       .then(data => data.json())
       .then(data => {
         setList(data);
         setSearchList(data);
-
         console.log(list);
       });
-  }, []);
+
+    if (user) {
+      axios
+        .get('https://21l06.sse.codesandbox.io/users/verifyAdmin', {
+          headers: {
+            'x-access-token': user.token
+          }
+        })
+        .then(response => {
+          console.log(response.data);
+          setrole('admin');
+        })
+        .catch(error => {
+          setrole('user');
+        });
+    }
+    console.log(user, role);
+  }, [user]);
   const changeList = SearchText => {
-    setSearchList(list.filter(value => value.name.includes(SearchText)));
+    if (list.length > 0) {
+      // console.log(list)
+      setSearchList(list.filter(value => value.name.includes(SearchText)));
+    }
   };
   return (
     <div class="card">
       <div class="card-body">
         <ol class="list-group list-group-numbered">
           <div>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-9">
                   <SearchForm setSeachText={changeList} />
                 </div>
+                {role === 'admin' ? (
+                  <div class="col">
+                    <button
+                      onClick={() => {
+                        setShowAddMovie(!ShowAddMovie);
+                      }}
+                      class="btn btn-primary"
+                    >
+                      Add Movie
+                    </button>
+                  </div>
+                ) : (
+                  ''
+                )}
               </div>
+              {role === 'admin' && ShowAddMovie ? (
+                <div class=" card row">
+                  <div class="col">
+                    <AddMovie user={user} />
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
             </li>
           </div>
           {SearchList.length > 0
