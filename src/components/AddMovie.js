@@ -7,7 +7,7 @@ export default props => {
   const [description, setdescription] = useState('');
 
   const addMovie = async () => {
-    axios
+    await axios
       .post(
         props.url + 'movie',
         {
@@ -30,6 +30,10 @@ export default props => {
       .catch(error => {
         console.error('There was an error!', error);
       });
+
+    settitle('');
+    setdescription('');
+    props.setShowAddMovie(false);
   };
   return (
     <div class="container">

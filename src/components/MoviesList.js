@@ -11,6 +11,7 @@ export default ({ url, user, setMovieId }) => {
 
   const pushMovie = movie => {
     setList(...list, movie);
+    setSearchList(data);
   };
   useEffect(() => {
     fetch(url + 'movies')
@@ -23,7 +24,7 @@ export default ({ url, user, setMovieId }) => {
 
     if (user) {
       axios
-        .get('https://21l06.sse.codesandbox.io/users/verifyAdmin', {
+        .get(url + 'users/verifyAdmin', {
           headers: {
             'x-access-token': user.token
           }
@@ -47,7 +48,7 @@ export default ({ url, user, setMovieId }) => {
   return (
     <div class="card">
       <div class="card-body">
-        <ol class="list-group list-group-numbered">
+        <ol class="list-group list-group-numbered overflow-auto">
           <div>
             <li class="list-group-item">
               <div class="row">
@@ -69,10 +70,15 @@ export default ({ url, user, setMovieId }) => {
                   ''
                 )}
               </div>
-              {role === 'admin' && ShowAddMovie ? (
+              {role === 'admin' && ShowAddMovie && user ? (
                 <div class=" card row">
                   <div class="col">
-                    <AddMovie url ={url} user={user} />
+                    <AddMovie
+                      url={url}
+                      user={user}
+                      setShowAddMovie={setShowAddMovie}
+                      pushMovie={pushMovie}
+                    />
                   </div>
                 </div>
               ) : (

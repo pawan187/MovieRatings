@@ -38,30 +38,26 @@ export default ({ url, user, MovieId, addComment }) => {
     }
   };
   return (
-    <div>
-      <div class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="card">
-          <div class="row">
-            <input
-              onChange={e => setSearchText(e.target.value)}
-              type="text"
-              class="form-control col"
-              placeholder="enter some comment"
-              aria-describedby="basic-addon2"
-            />
-          </div>
-          <div class="row">
-            <input
-              type="number"
-              onChange={e => setRating(e.target.value)}
-              class="col from-control"
-              id="basic-addon2"
-            />
-            <button class=" col form-control" onClick={() => AddComment()}>
-              add
-            </button>
-          </div>
-        </div>
+    <div class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="row">
+        <input
+          onChange={e => setSearchText(e.target.value)}
+          type="text"
+          class="form-control col-6"
+          placeholder="enter some comment"
+        />
+        <input
+          type="number"
+          onChange={e => setRating(e.target.value)}
+          class="from-control col "
+          placeholder="give rating"
+        />
+        <button
+          class="btn btn-primary col form-control"
+          onClick={() => AddComment()}
+        >
+          add
+        </button>
       </div>
     </div>
   );
