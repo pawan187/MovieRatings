@@ -9,7 +9,7 @@ export default props => {
   const login = async () => {
     console.log('post request sent');
     axios
-      .post('https://21l06.sse.codesandbox.io/users/Login', {
+      .post(props.url + 'users/Login', {
         username: email,
         password: password
       })
@@ -20,6 +20,7 @@ export default props => {
         localStorage.user = JSON.stringify(response.data);
       })
       .catch(error => {
+        alert('Please check your credentials. Have you registered?');
         console.error('There was an error!', error);
       });
   };
@@ -35,10 +36,12 @@ export default props => {
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          required
         />
         <div id="emailHelp" class="form-text">
           We'll never share your email with anyone else.
         </div>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">
@@ -49,7 +52,9 @@ export default props => {
           type="password"
           class="form-control"
           id="exampleInputPassword1"
+          required
         />
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <button
         onClick={() => login()}

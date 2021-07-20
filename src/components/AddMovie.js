@@ -9,7 +9,7 @@ export default props => {
   const addMovie = async () => {
     axios
       .post(
-        'https://21l06.sse.codesandbox.io/movie',
+        props.url + 'movie',
         {
           name: title,
           description: description

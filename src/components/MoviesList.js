@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddMovie from './AddMovie';
 import SearchForm from './SearchForm';
-export default ({ user, setMovieId }) => {
+export default ({ url, user, setMovieId }) => {
   const [list, setList] = useState([]);
   const [SearchText, setSearchText] = useState('');
   const [SearchList, setSearchList] = useState('');
@@ -13,7 +13,7 @@ export default ({ user, setMovieId }) => {
     setList(...list, movie);
   };
   useEffect(() => {
-    fetch('https://21l06.sse.codesandbox.io/movies')
+    fetch(url + 'movies')
       .then(data => data.json())
       .then(data => {
         setList(data);
@@ -52,7 +52,7 @@ export default ({ user, setMovieId }) => {
             <li class="list-group-item">
               <div class="row">
                 <div class="col-9">
-                  <SearchForm setSeachText={changeList} />
+                  <SearchForm url={url} setSeachText={changeList} />
                 </div>
                 {role === 'admin' ? (
                   <div class="col">
@@ -72,7 +72,7 @@ export default ({ user, setMovieId }) => {
               {role === 'admin' && ShowAddMovie ? (
                 <div class=" card row">
                   <div class="col">
-                    <AddMovie user={user} />
+                    <AddMovie url ={url} user={user} />
                   </div>
                 </div>
               ) : (

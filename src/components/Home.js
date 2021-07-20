@@ -10,6 +10,7 @@ export default () => {
   const [ShowLogin, setShowLogin] = useState(false);
   const [ShowRegister, setShowRegister] = useState(false);
   const [user, setUser] = useState();
+  const url = 'https://wo1gh.sse.codesandbox.io/';
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem('user'));
     setUser(data);
@@ -25,6 +26,7 @@ export default () => {
       />
       {ShowLogin ? (
         <Login
+          url={url}
           setShowLogin={setShowLogin}
           setShowRegister={setShowRegister}
           setUser={setUser}
@@ -33,7 +35,12 @@ export default () => {
         ''
       )}
       {ShowRegister ? (
-        <Register setShowRegister={setShowRegister} setUser={setUser} />
+        <Register
+          url={url}
+          setShowRegister={setShowRegister}
+          setShowLogin={setShowLogin}
+          setUser={setUser}
+        />
       ) : (
         ''
       )}
@@ -41,11 +48,11 @@ export default () => {
         <div>
           <div class="container row">
             <div class="col">
-              <MoviesList user={user} setMovieId={setMovieId} />
+              <MoviesList user={user} url={url} setMovieId={setMovieId} />
             </div>
             {MovieId ? (
               <div class="col">
-                <MovieDetail user={user} id={MovieId} />
+                <MovieDetail user={user} url={url} id={MovieId} />
               </div>
             ) : (
               ''

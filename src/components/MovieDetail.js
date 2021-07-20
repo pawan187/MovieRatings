@@ -10,7 +10,7 @@ export default props => {
   };
   useEffect(() => {
     // console.log(props.user);
-    fetch('https://21l06.sse.codesandbox.io/movie/' + props.id)
+    fetch(props.url + 'movie/' + props.id)
       .then(data => data.json())
       .then(data => setmovie({ ...data }));
   }, [props.id]);

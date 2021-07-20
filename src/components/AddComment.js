@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-export default ({ user, MovieId, addComment }) => {
+export default ({ url, user, MovieId, addComment }) => {
   const [SearchText, setSearchText] = useState('');
   const [Rating, setRating] = useState(0);
   const AddComment = () => {
     console.log(user);
     if (!user) {
       alert('please log in');
+      setRating(0);
+      setSearchText('');
     } else {
       console.log(SearchText, user.id, MovieId, Rating, user.token);
       axios
         .post(
-          'https://21l06.sse.codesandbox.io/comment',
+          url + 'comment',
           {
             movieId: MovieId,
             userId: user.id,
@@ -27,6 +29,8 @@ export default ({ user, MovieId, addComment }) => {
         .then(response => {
           console.log(response.data);
           addComment(response.data);
+          setRating(0);
+          setSearchText('');
         })
         .catch(error => {
           console.error('There was an error!', error);

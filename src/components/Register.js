@@ -8,14 +8,14 @@ export default props => {
   const Register = () => {
     console.log(email, name, password);
     axios
-      .post('https://21l06.sse.codesandbox.io/users/Register', {
+      .post(props.url + 'users/Register', {
         name: name,
         email: email,
         password: password
       })
       .then(response => {
         console.log(response.data);
-        props.setShowLogin(false);
+        props.setShowRegister(false);
         props.setUser(response.data);
         localStorage.user = JSON.stringify(response.data);
       })
