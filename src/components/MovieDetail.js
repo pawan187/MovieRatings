@@ -30,6 +30,7 @@ export default props => {
           </div>
           <ul class="list-group">
             <AddComment
+              url={props.url}
               user={props.user}
               addComment={addComment}
               MovieId={props.id}

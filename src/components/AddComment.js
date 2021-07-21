@@ -9,6 +9,8 @@ export default ({ url, user, MovieId, addComment }) => {
       setRating(0);
       setSearchText('');
       alert('please log in');
+    } else if (SearchText === '' || Rating === null) {
+      alert('Please give some comment and rating');
     } else {
       console.log(SearchText, user.id, MovieId, Rating, user.token);
       axios
