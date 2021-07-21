@@ -10,6 +10,8 @@ export default () => {
   const [ShowLogin, setShowLogin] = useState(false);
   const [ShowRegister, setShowRegister] = useState(false);
   const [user, setUser] = useState();
+
+  const [ShowAddMovie, setShowAddMovie] = useState(false);
   const url = 'https://r2f9j.sse.codesandbox.io/';
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem('user'));
@@ -23,6 +25,7 @@ export default () => {
         user={user}
         setShowLogin={setShowLogin}
         setShowRegister={setShowRegister}
+        setShowAddmovie={setShowAddMovie}
       />
       {ShowLogin ? (
         <Login
@@ -48,7 +51,13 @@ export default () => {
         <div>
           <div class="container row">
             <div class="col">
-              <MoviesList user={user} url={url} setMovieId={setMovieId} />
+              <MoviesList
+                user={user}
+                url={url}
+                ShowAddMovie={ShowAddMovie}
+                setShowAddMovie={setShowAddMovieset}
+                MovieId={setMovieId}
+              />
             </div>
             {MovieId ? (
               <div class="col">

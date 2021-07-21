@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddMovie from './AddMovie';
 import SearchForm from './SearchForm';
-export default ({ url, user, setMovieId }) => {
+export default ({ url, user, setMovieId , ShowAddMovie ,setShowAddMovie}) => {
   const [list, setList] = useState([]);
   const [SearchText, setSearchText] = useState('');
   const [SearchList, setSearchList] = useState('');
   const [role, setrole] = useState('user');
-  const [ShowAddMovie, setShowAddMovie] = useState(false);
 
   const pushMovie = movie => {
     setList(...list, movie);
