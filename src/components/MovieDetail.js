@@ -18,7 +18,7 @@ export default props => {
     <div>
       <div class="container">
         <div class="card text-center">
-          <div class="card-header"> Movie Details </div>
+          <div class="card-header"> Movie Details</div>
           <div class="card-body">
             <h5 class="card-title">{movie[0] ? movie[0].name : 'No title'}</h5>
             <p class="card-text">

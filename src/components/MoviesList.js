@@ -48,7 +48,7 @@ export default ({ url, user, setMovieId }) => {
   return (
     <div class="card">
       <div class="card-body">
-        <ol class="list-group list-group-numbered overflow-auto">
+        <ol class="list-group list-group-numbered ">
           <div>
             <li class="list-group-item">
               <div class="row">
@@ -92,7 +92,7 @@ export default ({ url, user, setMovieId }) => {
                   <div key={index}>
                     <button
                       onClick={() => setMovieId(value._id)}
-                      class="list-group-item list-group-item-action"
+                      class="list-group-item list-group-item-action d-flex justify-content-between align-items-start"
                     >
                       <div class="ms-2 me-auto">
                         <div class="fw-bold">

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 export default ({ url, user, MovieId, addComment }) => {
   const [SearchText, setSearchText] = useState('');
-  const [Rating, setRating] = useState(0);
+  const [Rating, setRating] = useState();
   const AddComment = () => {
     console.log(user);
     if (!user) {
-      alert('please log in');
       setRating(0);
       setSearchText('');
+      alert('please log in');
     } else {
       console.log(SearchText, user.id, MovieId, Rating, user.token);
       axios
@@ -43,11 +43,13 @@ export default ({ url, user, MovieId, addComment }) => {
         <input
           onChange={e => setSearchText(e.target.value)}
           type="text"
+          value={SearchText}
           class="form-control col-6"
           placeholder="enter some comment"
         />
         <input
           type="number"
+          value={Rating}
           onChange={e => setRating(e.target.value)}
           class="from-control col "
           placeholder="give rating"
