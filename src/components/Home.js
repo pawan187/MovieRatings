@@ -12,6 +12,7 @@ export default () => {
   const [user, setUser] = useState();
 
   const [ShowAddMovie, setShowAddMovie] = useState(false);
+
   const url = 'https://r2f9j.sse.codesandbox.io/';
   useEffect(() => {
     const data = JSON.parse(window.localStorage.getItem('user'));
@@ -22,10 +23,10 @@ export default () => {
     <div class="container-fluid">
       <NavBar
         setUser={setUser}
+        setShowAddmovie={setShowAddMovie}
         user={user}
         setShowLogin={setShowLogin}
         setShowRegister={setShowRegister}
-        setShowAddmovie={setShowAddMovie}
       />
       {ShowLogin ? (
         <Login
@@ -55,8 +56,8 @@ export default () => {
                 user={user}
                 url={url}
                 ShowAddMovie={ShowAddMovie}
-                setShowAddMovie={setShowAddMovieset}
-                MovieId={setMovieId}
+                setShowAddMovie={setShowAddMovie}
+                setMovieId={setMovieId}
               />
             </div>
             {MovieId ? (

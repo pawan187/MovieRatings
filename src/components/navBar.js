@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default ({ user, setUser, setShowAddMovie, setShowLogin, setShowRegister }) => {
+export default ({
+  user,
+  setUser,
+  setShowAddMovie,
+  setShowLogin,
+  setShowRegister
+}) => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid col">
@@ -39,6 +45,7 @@ export default ({ user, setUser, setShowAddMovie, setShowLogin, setShowRegister 
               <button
                 onClick={() => {
                   setUser(null);
+                  // setShowAddMovie(false);
                   localStorage.setItem('user', null);
                 }}
                 class="btn btn-light"
