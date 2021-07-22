@@ -54,7 +54,7 @@ export default ({ url, user, setMovieId, ShowAddMovie, setShowAddMovie }) => {
                 <div class="col-9">
                   <SearchForm url={url} setSeachText={changeList} />
                 </div>
-                {role === 'admin' ? (
+                {role === 'admin' && user ? (
                   <div class="col">
                     <button
                       onClick={() => {

@@ -6,6 +6,9 @@ export default props => {
   const [password, setpassword] = useState('');
 
   const Register = () => {
+    if (!email && !name && !password) {
+      alert('please fill all the fields');
+    }
     console.log(email, name, password);
     axios
       .post(props.url + 'users/Register', {

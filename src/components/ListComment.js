@@ -14,13 +14,13 @@ export default ({ comments }) => {
             return (
               <div key={index}>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
-                  <span class="badge bg-primary rounded-pill">
-                    {value.rating}
-                  </span>
                   <div class="ms-2 me-auto">
                     <div class="fw-bold">{value.username}</div>
                     {value.comment}
                   </div>
+                  <span class="badge bg-primary rounded-pill">
+                    {value.rating}
+                  </span>
                 </li>
               </div>
             );

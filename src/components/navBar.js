@@ -5,7 +5,8 @@ export default ({
   setUser,
   setShowAddMovie,
   setShowLogin,
-  setShowRegister
+  setShowRegister,
+  setShowDashboard
 }) => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,10 +42,21 @@ export default ({
             </button>
           ) : (
             <div>
-              Hello , {user.email}
+              Hello ,{' '}
+              <button
+                onClick={() => {
+                  setShowDashboard(true);
+                }}
+                class="btn btn-light"
+              >
+                {user.email}
+              </button>
               <button
                 onClick={() => {
                   setUser(null);
+                  setShowAddMovie(false);
+                  setShowRegister(false);
+                  setShowLogin(false);
                   // setShowAddMovie(false);
                   localStorage.setItem('user', null);
                 }}
