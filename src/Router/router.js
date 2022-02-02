@@ -6,6 +6,7 @@ import NavBar from '../components/navBar';
 import Register from '../components/Register';
 import Error from '../components/Error';
 import MovieDetail from '../components/MovieDetail';
+import Demo from '../components/Demo'
 import ReactDOM from 'react-dom';
 import {
   Router,
@@ -29,6 +30,8 @@ export default () => {
           <Route path="/" component={Home} exact={true} />
           <Route path="/login" component={Login} />
           <Route path="/Register" component={Register} />
+          
+          <Route path="/Demo" component={Demo} />
           <Route component={Error} />
         </Switch>
       </div>
