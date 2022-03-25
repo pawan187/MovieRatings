@@ -5,7 +5,7 @@ import CommentList from './ListComment';
 export default props => {
   const [movie, setmovie] = useState([]);
   const addComment = comment => {
-    setmovie({ comments: [...movie.comments, comment] });
+    setmovie({ comments: [comment,...movie.comments ] });
     console.log(movie);
   };
   useEffect(() => {
@@ -35,7 +35,7 @@ export default props => {
               addComment={addComment}
               MovieId={props.id}
             />
-            <CommentList comments={movie['comments']} />
+            <CommentList url={props.url} user={props.user} comments={movie['comments']}  setmovie={setmovie}/>
           </ul>
         </div>
       </div>
