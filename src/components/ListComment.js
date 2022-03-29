@@ -12,16 +12,16 @@ export default ({ url, comments, user, setmovie }) => {
         },
       })
       .then((resp) => {
-        console.log(resp.data.id);
+        console.log('id : ' + resp.data.id);
 
         setmovie({
-          comments: comments.filter((element) => element._id == resp.data.id
-            ? false
-            : true)
+          comments: comments.filter((element) =>
+            element._id == resp.data.id ? false : true
+          ),
         });
       })
       .catch((err) => {
-        console.log(err);
+        console.log('err' + err);
       });
   };
   return (
